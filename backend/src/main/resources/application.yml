@@ -1,0 +1,47 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/ticketing}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 25MB
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+jwt:
+  secret: ${JWT_SECRET:change-me-to-a-long-random-secret-at-least-64-characters-long-xxxxxxxxxxxxxxxxxxxx}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+
+app:
+  upload-dir: ${APP_UPLOAD_DIR:/tmp/uploads}
+  frontend-url: ${FRONTEND_URL:http://localhost:3000}
+  mail:
+    enabled: false
+    from: no-reply@example.com

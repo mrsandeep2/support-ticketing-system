@@ -4,4 +4,3 @@ target/
 *.iml
 *.log
 uploads/
-src/main/resources/application.yml
