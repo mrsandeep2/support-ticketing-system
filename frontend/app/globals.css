@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body {
+	@apply text-slate-900;
+	background: radial-gradient(1200px 600px at 15% -10%, #fff1e2 0%, #fff7ef 45%, #fffaf5 100%);
+}
+
+.font-display { font-family: var(--font-display); }
+
+.btn { @apply inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition disabled:opacity-50; }
+.btn-primary { @apply btn bg-orange-500 text-white shadow-sm hover:bg-orange-600; }
+.btn-secondary { @apply btn bg-white/80 border border-orange-200 text-slate-900 hover:bg-white; }
+.btn-ghost { @apply btn bg-transparent text-slate-700 hover:bg-white/70; }
+.btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+.input { @apply w-full rounded-xl border border-amber-200/60 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300; }
+.label { @apply block text-sm font-medium text-slate-700 mb-1; }
+.card { @apply bg-white/90 rounded-2xl border border-amber-100 shadow-[0_10px_30px_rgba(16,24,40,0.08)]; }
+.badge { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-orange-50 text-orange-700 border border-orange-100; }
+
+.nav-link {
+	@apply relative inline-flex items-center gap-2 pb-1 text-slate-700 transition;
+}
+.nav-link::after {
+	content: "";
+	@apply absolute left-0 -bottom-1 h-0.5 w-full rounded-full bg-orange-500 transition-transform duration-200;
+	transform: scaleX(0);
+	transform-origin: left;
+}
+.nav-link:hover {
+	@apply text-orange-600;
+}
+.nav-link:hover::after {
+	transform: scaleX(1);
+}
+.nav-link-active {
+	@apply text-orange-600 font-semibold;
+}
+.nav-link-active::after {
+	transform: scaleX(1);
+}

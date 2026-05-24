@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+backend/target/
+frontend/.next/
+frontend/tsconfig.tsbuildinfo
+
+# Env files
+.env
+.env.local
+frontend/.env.local
+*.env
+
+# Uploads
+uploads/
+/tmp/uploads
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
